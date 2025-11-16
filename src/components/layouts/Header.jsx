@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { User, ShoppingCart, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
 import {
   Popover,
   PopoverTrigger,
@@ -9,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("flash");
 
   return (
@@ -97,12 +99,14 @@ const Header = () => {
               </p>
               <div className="flex flex-col gap-2">
                 <Button
+                  onClick={() => navigate("/login")}
                   variant="ghost"
                   className="justify-start text-sm hover:bg-orange-50 hover:text-orange-500"
                 >
                   Đăng nhập
                 </Button>
                 <Button
+                  onClick={() => navigate("/register")}
                   variant="ghost"
                   className="justify-start text-sm hover:bg-orange-50 hover:text-orange-500"
                 >
