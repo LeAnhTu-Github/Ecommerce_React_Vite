@@ -9,7 +9,6 @@ import Login from "./pages/login";
 import Register from "./pages/Register";
 import Confirm from "./pages/Confirm";
 import GoogleCallback from "./pages/GoogleCallback";
-import Section3 from "./components/layouts/Section3";
 
 function App() {
   return (

@@ -27,7 +27,7 @@ const products = [
   },
 ];
 
-const Section4 = () => {
+const HomeMoreItems = () => {
   return (
     <section className="w-full py-6">
       <h2 className="text-2xl font-bold max-w-6xl mx-auto mb-4 px-4">
@@ -58,4 +58,4 @@ const Section4 = () => {
   );
 };
 
-export default Section4;
+export default HomeMoreItems;

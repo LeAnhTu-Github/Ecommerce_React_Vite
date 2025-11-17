@@ -27,7 +27,7 @@ const categories = [
   },
 ];
 
-const Section3 = () => {
+const HomeCategorys = () => {
   return (
     <div className="w-full py-10">
       <h2 className="text-4xl font-bold mb-8">CONTINUE SHOPPING FOR</h2>
@@ -59,4 +59,4 @@ const Section3 = () => {
   );
 };
 
-export default Section3;
+export default HomeCategorys;

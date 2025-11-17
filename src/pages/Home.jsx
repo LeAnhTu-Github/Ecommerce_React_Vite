@@ -1,17 +1,25 @@
-import Section1 from "@/components/layouts/Section1";
-import Section2 from "@/components/layouts/Section2";
-import Section3 from "@/components/layouts/Section3";
-import Section4 from "@/components/layouts/Section4";
-import Section5 from "@/components/layouts/Section5";
+import HomeBanners from "@/components/layouts/HomeBanners";
+import HomeCategorys from "@/components/layouts/HomeCategorys";
+import HomeMoreItems from "@/components/layouts/HomeMoreItems";
+import HomeReviews from "@/components/layouts/HomeReviews";
+import HomeTodayDeals from "@/components/layouts/HomeTodayDeals";
 
 const Home = () => {
+  console.log({
+    HomeBanners,
+    HomeTodayDeals,
+    HomeCategorys,
+    HomeMoreItems,
+    HomeReviews,
+  });
+
   return (
     <div>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
+      <HomeBanners />
+      <HomeTodayDeals />
+      <HomeCategorys />
+      <HomeMoreItems />
+      <HomeReviews />
     </div>
   );
 };

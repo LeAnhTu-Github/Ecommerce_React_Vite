@@ -24,10 +24,9 @@ const reviews = [
   },
 ];
 
-const Section5 = () => {
+const HomeReviews = () => {
   return (
     <div className="w-full py-10 space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-4xl font-bold">REVIEWS</h2>
         <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 px-5 rounded-md">
@@ -35,27 +34,23 @@ const Section5 = () => {
         </button>
       </div>
 
-      {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map((item, index) => (
           <div
             key={index}
             className="bg-white rounded-2xl shadow-md overflow-hidden"
           >
-            {/* Top info */}
             <div className="p-5 flex items-start justify-between">
               <div>
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
 
-                {/* Rating */}
                 <div className="flex items-center gap-1 mt-2">
                   <Star size={18} className="text-yellow-400 fill-yellow-400" />
                   <span className="font-semibold">{item.rating}</span>
                 </div>
               </div>
 
-              {/* Avatar */}
               <img
                 src={item.userImg}
                 alt="user"
@@ -63,7 +58,6 @@ const Section5 = () => {
               />
             </div>
 
-            {/* Review Image */}
             <img
               src={item.productImg}
               className="w-full h-56 object-cover"
@@ -76,4 +70,4 @@ const Section5 = () => {
   );
 };
 
-export default Section5;
+export default HomeReviews;

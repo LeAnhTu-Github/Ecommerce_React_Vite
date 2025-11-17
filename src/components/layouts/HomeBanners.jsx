@@ -1,10 +1,8 @@
-const Section1 = () => {
+const HomeBanners = () => {
   return (
     <section className="w-full py-6">
       <div className="mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl">
-        {/* LEFT GRID */}
         <div className="flex flex-col gap-4 h-full">
-          {/* Box 1 */}
           <div className="flex-1 relative rounded-xl overflow-hidden bg-gradient-to-br from-amber-300 via-yellow-300 to-orange-400 p-4 flex items-center justify-center">
             <img
               src="/home-section1-1.png"
@@ -13,7 +11,6 @@ const Section1 = () => {
             />
           </div>
 
-          {/* Box 2 */}
           <div className="flex-1 relative rounded-xl overflow-hidden bg-gradient-to-br from-amber-300 via-yellow-300 to-orange-400 p-6">
             <div>
               <h2 className="text-2xl font-bold text-black">Flash Deals</h2>
@@ -29,7 +26,6 @@ const Section1 = () => {
           </div>
         </div>
 
-        {/* RIGHT IMAGE */}
         <div className="rounded-xl overflow-hidden relative">
           <img
             src="/home-section1-3.png"
@@ -42,4 +38,4 @@ const Section1 = () => {
   );
 };
 
-export default Section1;
+export default HomeBanners;
