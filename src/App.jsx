@@ -9,6 +9,7 @@ import Login from "./pages/login";
 import Register from "./pages/Register";
 import Confirm from "./pages/Confirm";
 import GoogleCallback from "./pages/GoogleCallback";
+import Section3 from "./components/layouts/Section3";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/confirm" element={<Confirm />} />
+
         <Route path="about" element={<About />} />
         <Route path="terms1" element={<Terms1 />} />
         <Route path="terms2" element={<Terms2 />} />

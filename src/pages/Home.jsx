@@ -1,50 +1,19 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import Section1 from "@/components/layouts/Section1";
+import Section2 from "@/components/layouts/Section2";
+import Section3 from "@/components/layouts/Section3";
+import Section4 from "@/components/layouts/Section4";
+import Section5 from "@/components/layouts/Section5";
 
 const Home = () => {
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Welcome to Ecommerce</h1>
-        <p className="text-xl text-muted-foreground">
-          Your one-stop shop for everything you need
-        </p>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader>
-            <CardTitle>Feature 1</CardTitle>
-            <CardDescription>Description of feature 1</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button>Learn More</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Feature 2</CardTitle>
-            <CardDescription>Description of feature 2</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button>Learn More</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Feature 3</CardTitle>
-            <CardDescription>Description of feature 3</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button>Learn More</Button>
-          </CardContent>
-        </Card>
-      </div>
+    <div>
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Section5 />
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;
