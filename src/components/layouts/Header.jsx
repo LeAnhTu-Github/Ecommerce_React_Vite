@@ -112,6 +112,13 @@ const Header = () => {
                 >
                   Đăng ký
                 </Button>
+                <Button
+                  onClick={() => navigate("/myprofile")}
+                  variant="ghost"
+                  className="justify-start text-sm hover:bg-orange-50 hover:text-orange-500"
+                >
+                  My Profile
+                </Button>
               </div>
             </PopoverContent>
           </Popover>
