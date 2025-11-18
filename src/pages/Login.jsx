@@ -1,15 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import BackLeftIcon from "../assets/back_left.svg";
 import ShareIcon from "../assets/share.svg";
 import BgLogin from "../assets/image55.png";
 import LogoGG from "../assets/logos_google-icon.png";
+
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setErrorMsg("Nhập đầy đủ email và mật khẩu !!!");
+      return;
+    }
+    try {
+      setLoading(true);
+      setErrorMsg("");
+
+      const res = await axios.post(`${apiBaseUrl}auth/sign-in`, {
+        email,
+        password,
+      });
+
+      localStorage.setItem("token", res.data.data?.token);
+
+      navigate("/");
+    } catch (err) {
+      setErrorMsg(
+        err.response?.data?.message || "Đăng nhập thất bại, thử lại."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
   const handleGoogleLogin = () => {
     const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-    window.location.href = `${apiBaseUrl}/v1/auth/google`;
+    window.location.href = `${apiBaseUrl}auth/google`;
   };
   return (
     <div className="min-h-screen flex flex-col ">
@@ -75,25 +109,43 @@ const Login = () => {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="border w-full bg-gray-100 border-gray-300 px-4 py-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
 
-            <div className="flex flex-col ">
+            <div className="flex flex-col relative">
               <label htmlFor="password" className="text-sm font-medium mb-1">
                 Password
               </label>
               <input
                 id="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="border bg-gray-100 border-gray-300 px-4 py-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                className="border bg-gray-100 border-gray-300 px-4 py-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none w-full"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-11 text-gray-500"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </div>
+            {errorMsg && (
+              <div className="text-red-500 font-medium">{errorMsg}</div>
+            )}
 
-            <button className="w-full  bg-black text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
-              Login
+            <button
+              onClick={handleLogin}
+              disabled={loading}
+              className="w-full bg-black text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400"
+            >
+              {loading ? "Logging in..." : "Login"}
             </button>
             <div className="flex items-center my-5 ">
               <div className="flex-1 h-px bg-gray-300"></div>
@@ -105,7 +157,7 @@ const Login = () => {
             <div>
               <button
                 onClick={handleGoogleLogin}
-                className="flex w-full py-4 items-center justify-center gap-2 bg-white border border-gray-300 py-2 px-4 rounded-lg hover:bg-gray-100 transition "
+                className="flex w-full py-4 items-center justify-center gap-2 bg-white border border-gray-300 px-4 rounded-lg hover:bg-gray-100 transition "
               >
                 <img src={LogoGG} alt="logogg" className="w-5 h-5" />
                 <span>Login with Google</span>
