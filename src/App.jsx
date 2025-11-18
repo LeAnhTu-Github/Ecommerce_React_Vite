@@ -22,6 +22,7 @@ function App() {
         <Route path="/auth/confirm-email" element={<ConfirmEmail />} />
         <Route path="/register" element={<Register />} />
         <Route path="/confirm" element={<Confirm />} />
+
         <Route path="about" element={<About />} />
         <Route path="terms1" element={<Terms1 />} />
         <Route path="terms2" element={<Terms2 />} />
